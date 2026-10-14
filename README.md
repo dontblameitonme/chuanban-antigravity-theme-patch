@@ -1,6 +1,6 @@
-# chuanban-antigravity-theme-patch (川办 Antigravity 界面补丁)
+# chuanban-antigravity-theme-patch
 
-> **Original Project Reference**: Originally designed and created by **Noel** ([chuanban-antigravity-theme-patch](https://drive.google.com/drive/folders/1NX92SgVUqtSjWg6bt6sIJXy-cn7J_boC)).
+> **Original Project Reference**: Originally designed and created by **Noel** ([chuanban-antigravity-theme-patch](https://bustling-politician-00f.notion.site/chuanban-antigravity-theme-patch-db7c5846f37546be9481cd791aed0554)).
 
 ---
 
