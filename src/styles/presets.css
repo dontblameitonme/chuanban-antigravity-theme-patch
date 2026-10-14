@@ -2,36 +2,59 @@
    chuanban-antigravity-theme-patch: Presets Style Sheet
    ========================================================================== */
 
-/* 1. 高对比版（浅色推荐默认） */
+/* 1. Claude 经典暖象牙纸质美学 (Claude Signature Warm Aesthetic / 默认推荐) */
+:root, html, body, body.theme-light, html[data-theme="light"], html.light,
+html[data-ag-preset="claude-warm-ivory"] body.theme-light,
 html[data-ag-preset="high-contrast"] body.theme-light {
-  --background: #FCFCFB !important;
+  --background: #FAF8F5 !important;
   --foreground: #1F1E1D !important;
-  --sidebar: #F7F5F0 !important;
-  --sidebar-secondary: #ECE9E1 !important;
-  --sidebar-border: rgba(0, 0, 0, 0.35) !important;
-  --border: rgba(0, 0, 0, 0.38) !important;
-  --card: #F9F7F2 !important;
-  --card-border: rgba(0, 0, 0, 0.35) !important;
-  --secondary-foreground: #0A0A0A !important;
+  --sidebar: #F3EFE7 !important;
+  --sidebar-secondary: #E8E2D6 !important;
+  --sidebar-muted: #EFEAE0 !important;
+  --sidebar-border: rgba(44, 40, 36, 0.12) !important;
+  --border: rgba(44, 40, 36, 0.12) !important;
+  --card: #FCFAF7 !important;
+  --card-border: rgba(44, 40, 36, 0.18) !important;
+  --primary: #D97757 !important;
+  --primary-foreground: #FFFFFF !important;
+  --secondary: #EFEAE0 !important;
+  --secondary-foreground: #1F1E1D !important;
+  --muted: #EFEAE0 !important;
+  --muted-foreground: #736E65 !important;
+  --accent: #D97757 !important;
+  --accent-foreground: #FFFFFF !important;
 }
 
-html[data-ag-preset="high-contrast"] .bg-sidebar {
-  background-color: var(--sidebar) !important;
+/* 侧边栏与卡片强化 */
+.bg-sidebar { background-color: var(--sidebar) !important; }
+.bg-sidebar-secondary { background-color: var(--sidebar-secondary) !important; }
+.bg-sidebar-muted { background-color: var(--sidebar-muted) !important; }
+.bg-border, .border-border { border-color: var(--border) !important; }
+
+/* 输入框悬浮纸片卡片 */
+#antigravity\.agentSidePanelInputBox,
+div[class*="input-box"],
+div[class*="composer"] {
+  background-color: var(--card) !important;
+  border: 1px solid var(--card-border) !important;
+  box-shadow: 0 4px 16px rgba(44, 40, 36, 0.06), 0 1px 2px rgba(44, 40, 36, 0.04) !important;
+  border-radius: 16px !important;
 }
 
-html[data-ag-preset="high-contrast"] .bg-border {
-  background-color: rgba(0, 0, 0, 0.28) !important;
+#antigravity\.agentSidePanelInputBox textarea,
+#antigravity\.agentSidePanelInputBox div[contenteditable="true"] {
+  font-family: 'Sarasa Mono Slab SC', 'Anthropic Mono', monospace !important;
+  color: #1F1E1D !important;
 }
 
-html[data-ag-preset="high-contrast"] a[class*="inline-flex"],
-html[data-ag-preset="high-contrast"] .bg-sidebar a {
-  border-color: rgba(0, 0, 0, 0.32) !important;
-}
-
-html[data-ag-preset="high-contrast"] #antigravity\.agentSidePanelInputBox span,
-html[data-ag-preset="high-contrast"] #antigravity\.agentSidePanelInputBox button {
-  color: #0A0A0A !important;
+#antigravity\.agentSidePanelInputBox span,
+#antigravity\.agentSidePanelInputBox button {
+  color: #1F1E1D !important;
   opacity: 1 !important;
+  font-weight: 500 !important;
+}
+#antigravity\.agentSidePanelInputBox button:hover {
+  color: #D97757 !important;
 }
 
 /* 2. ClaudeDesktop 净白 (claude-desktop-purewhite) */
@@ -43,15 +66,7 @@ html[data-ag-preset="claude-desktop-purewhite"] body.theme-light {
   --sidebar-border: #F0F0EE !important;
 }
 
-html[data-ag-preset="claude-desktop-purewhite"] .bg-sidebar {
-  background-color: var(--sidebar) !important;
-}
-
-html[data-ag-preset="claude-desktop-purewhite"] .bg-border {
-  background-color: var(--sidebar-border) !important;
-}
-
-/* 3. 复古深色 (vintage-deep / 原 absoulutely-chuanban) */
+/* 3. 复古深色牛皮纸 (vintage-deep / 原 absoulutely-chuanban) */
 html[data-ag-preset="vintage-deep"] body.theme-light {
   --background: #FBF9F5 !important;
   --foreground: #2C2B29 !important;
@@ -59,14 +74,6 @@ html[data-ag-preset="vintage-deep"] body.theme-light {
   --sidebar: #F1E8DC !important;
   --sidebar-secondary: #E6DCCE !important;
   --sidebar-border: #E0D4C3 !important;
-}
-
-html[data-ag-preset="vintage-deep"] .bg-sidebar {
-  background-color: var(--sidebar) !important;
-}
-
-html[data-ag-preset="vintage-deep"] .bg-border {
-  background-color: var(--sidebar-border) !important;
 }
 
 /* 4. 曜石暖深黑 (Claude Obsidian Dark) */
@@ -82,31 +89,4 @@ body.dark, body.theme-dark, html[data-ag-preset="obsidian-dark"] body {
   --primary: #D97757 !important;
   --border: rgba(255, 255, 255, 0.1) !important;
   --secondary-foreground: #FFFFFF !important;
-}
-
-body.dark, body.theme-dark, html[data-ag-preset="obsidian-dark"] body {
-  background-color: var(--background) !important;
-  color: var(--foreground) !important;
-}
-
-body.dark .bg-sidebar, body.theme-dark .bg-sidebar {
-  background-color: var(--sidebar) !important;
-}
-
-body.dark .bg-border, body.theme-dark .bg-border {
-  background-color: var(--sidebar-border) !important;
-}
-
-body.dark #antigravity\.agentSidePanelInputBox,
-body.theme-dark #antigravity\.agentSidePanelInputBox {
-  background-color: var(--card) !important;
-  border-color: var(--card-border) !important;
-}
-
-body.dark #antigravity\.agentSidePanelInputBox span,
-body.dark #antigravity\.agentSidePanelInputBox button,
-body.theme-dark #antigravity\.agentSidePanelInputBox span,
-body.theme-dark #antigravity\.agentSidePanelInputBox button {
-  color: #E6E4DE !important;
-  opacity: 1 !important;
 }
