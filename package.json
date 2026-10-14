@@ -1,0 +1,29 @@
+{
+  "name": "chuanban-antigravity-theme-patch",
+  "version": "1.0.0",
+  "description": "Google Antigravity client theme, typography, localization & stability patch based on Chrome DevTools Protocol (CDP) runtime injection.",
+  "main": "src/daemon.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/daemon.js",
+    "inject": "node src/daemon.js --once",
+    "install:mac": "bash scripts/install-service.sh",
+    "uninstall:mac": "bash scripts/uninstall-service.sh",
+    "install:win": "powershell -ExecutionPolicy Bypass -File scripts/install-service.ps1",
+    "uninstall:win": "powershell -ExecutionPolicy Bypass -File scripts/uninstall-service.ps1"
+  },
+  "keywords": [
+    "antigravity",
+    "theme",
+    "patch",
+    "cdp",
+    "claude-style",
+    "typography",
+    "localization"
+  ],
+  "author": "Noel",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

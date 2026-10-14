@@ -1,0 +1,72 @@
+/* ==========================================================================
+   chuanban-antigravity-theme-patch: Typography Hierarchy (A 方案 - 默认推荐)
+   ========================================================================== */
+
+/* 1. UI 控件层: 全局按钮、导航栏、侧栏标题、下拉菜单、Tabs、常规面板 */
+button,
+nav,
+select,
+[role="tab"],
+[role="menu"],
+[role="menubar"],
+[role="menuitem"],
+.bg-sidebar,
+header,
+nav * {
+  font-family: 'Anthropic Sans', 'Styrene B', system-ui, -apple-system, BlinkMacSystemFont, 'Sarasa UI SC', '更纱黑体 UI SC', sans-serif !important;
+}
+
+/* 2. 阅读正文层: 对话区正文、Markdown 渲染区、.prose、.markdown、段落 p、列表 li、标题 h1-h6 */
+.prose,
+.markdown,
+.prose p,
+.prose li,
+.prose blockquote,
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6,
+.markdown p,
+.markdown li,
+.markdown blockquote,
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6,
+article p,
+article li,
+[class*="chat-message"] p,
+[class*="chat-message"] li {
+  font-family: 'Anthropic Serif', 'Tiempos Text', Georgia, Cambria, 'Sarasa Mono Slab SC', '等距更纱黑体 Slab SC', 'Sarasa Gothic SC', '更纱黑体 SC', serif !important;
+  line-height: 1.62;
+}
+
+/* 3. 代码与终端层: code, pre, .monaco-editor, .xterm 终端、文件名与路径、diff 变更器 */
+code,
+pre,
+pre *,
+kbd,
+samp,
+.monaco-editor,
+.monaco-editor *,
+.xterm,
+.xterm *,
+[class*="language-"],
+[class*="code-block"],
+[class*="terminal"] {
+  font-family: 'Anthropic Mono', 'Sarasa Mono Slab SC', '等距更纱黑体 Slab SC', ui-monospace, SFMono-Regular, monospace !important;
+}
+
+/* 4. 主输入框编辑区: div[contenteditable="true"], textarea, [data-composer], .ProseMirror */
+div[contenteditable="true"],
+textarea,
+[data-composer],
+.ProseMirror,
+#antigravity\.agentSidePanelInputBox textarea,
+#antigravity\.agentSidePanelInputBox div[contenteditable="true"] {
+  font-family: 'Sarasa Mono Slab SC', '等距更纱黑体 Slab SC', 'Anthropic Mono', monospace !important;
+}

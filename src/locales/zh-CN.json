@@ -1,0 +1,63 @@
+{
+  "exact": {
+    "New Conversation": "新建对话",
+    "Conversation History": "历史对话",
+    "Settings": "系统设置",
+    "Automations": "自动化任务",
+    "Customizations": "技能与自定义",
+    "General": "常规设置",
+    "Execution": "执行策略",
+    "Global Permissions": "全局权限",
+    "Tool Permissions": "工具权限",
+    "Network Access Rules": "网络访问规则",
+    "Application": "应用配置",
+    "Prevent Sleep": "防止电脑休眠",
+    "Keep In Menu Bar": "保持在系统菜单栏",
+    "Folders": "项目目录",
+    "Permission Settings": "权限设置",
+    "Inherit Global": "继承全局",
+    "MCP Tools": "MCP 工具",
+    "Rules": "项目规则",
+    "Delete Project": "删除项目",
+    "Shortcuts": "快捷键",
+    "Models & Usage": "模型与用量",
+    "Feedback Type": "反馈类型",
+    "Appearance": "外观设置",
+    "Proceed": "确认执行",
+    "Cancel": "取消",
+    "Copy": "复制",
+    "Running": "运行中",
+    "Completed": "已完成",
+    "Save": "保存",
+    "Close": "关闭",
+    "Default Light": "出厂默认浅色",
+    "Dark Theme": "深色主题"
+  },
+  "patterns": [
+    {
+      "regex": "^(\\d+)\\s+active\\s+conversations$",
+      "flags": "i",
+      "replace": "$1 个进行中的会话"
+    },
+    {
+      "regex": "^(\\d+)\\s+files?\\s+changed$",
+      "flags": "i",
+      "replace": "$1 个文件变更"
+    },
+    {
+      "regex": "^Show\\s+(\\d+)\\s+breakdowns?$",
+      "flags": "i",
+      "replace": "展开明细 ($1 项)"
+    },
+    {
+      "regex": "^Worked for\\s+(\\d+[smhd])$",
+      "flags": "i",
+      "replace": "已工作 $1"
+    },
+    {
+      "regex": "^Thought for\\s+(\\d+[smhd])$",
+      "flags": "i",
+      "replace": "已思考 $1"
+    }
+  ]
+}
