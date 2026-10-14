@@ -145,6 +145,38 @@ html[data-ag-preset="vintage-deep"] body.theme-light {
 }
 html[data-ag-preset="vintage-deep"] .bg-sidebar { background-color: var(--sidebar) !important; }
 html[data-ag-preset="vintage-deep"] .bg-border { background-color: var(--sidebar-border) !important; }
+
+/* 4. 曜石暖深黑 (Claude Obsidian Dark) */
+body.dark, body.theme-dark, html[data-ag-preset="obsidian-dark"] body {
+  --background: #181816 !important;
+  --foreground: #E6E4DE !important;
+  --sidebar: #1F1E1B !important;
+  --sidebar-secondary: #282723 !important;
+  --sidebar-muted: #242320 !important;
+  --sidebar-border: rgba(255, 255, 255, 0.08) !important;
+  --card: #22211E !important;
+  --card-border: rgba(255, 255, 255, 0.12) !important;
+  --primary: #D97757 !important;
+  --border: rgba(255, 255, 255, 0.1) !important;
+  --secondary-foreground: #FFFFFF !important;
+}
+body.dark, body.theme-dark, html[data-ag-preset="obsidian-dark"] body {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+}
+body.dark .bg-sidebar, body.theme-dark .bg-sidebar { background-color: var(--sidebar) !important; }
+body.dark .bg-border, body.theme-dark .bg-border { background-color: var(--sidebar-border) !important; }
+body.dark #antigravity\\.agentSidePanelInputBox, body.theme-dark #antigravity\\.agentSidePanelInputBox {
+  background-color: var(--card) !important;
+  border-color: var(--card-border) !important;
+}
+body.dark #antigravity\\.agentSidePanelInputBox span,
+body.dark #antigravity\\.agentSidePanelInputBox button,
+body.theme-dark #antigravity\\.agentSidePanelInputBox span,
+body.theme-dark #antigravity\\.agentSidePanelInputBox button {
+  color: #E6E4DE !important;
+  opacity: 1 !important;
+}
 `;
 
   function injectStyle(id, css) {
