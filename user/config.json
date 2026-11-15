@@ -4,9 +4,9 @@
   "preset": "high-contrast",
   "contextLimit": 256000,
   "modules": {
-    "i18n": true,
+    "i18n": false,
     "metrics": true,
-    "composerWaxSeal": true,
+    "composerWaxSeal": false,
     "deadlockHealer": true,
     "customCss": true,
     "customJs": true

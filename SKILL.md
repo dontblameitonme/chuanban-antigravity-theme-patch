@@ -22,7 +22,7 @@ description: 船板的 Antigravity 2.0 主题、字体与深度汉化全栈成�
    - 链接：<https://drive.google.com/drive/folders/1NX92SgVUqtSjWg6bt6sIJXy-cn7J_boC>
    - 包含：**v5.1.4 完整项目成品包 + 全套必备字体包（Anthropic 官方字体族 `Anthropic Sans` / `Anthropic Serif` / `Anthropic Mono` + 更纱黑体 `Sarasa-SuperTTC.ttc` 超集）**。
 2. **GitHub 权威代码库（成品补丁仓库与 `SKILL.md` 本体）**
-   - 仓库：<https://github.com/Anarcadia/chuanban-antigravity-theme-patch>
+   - 仓库：<https://github.com/dontblameitonme/chuanban-antigravity-theme-patch>
    - 包含：全部 `core/` 黄金内核、`user/` 改装模板、`install.mjs` CLI 与本 `SKILL.md`（字体文件请从上方 Google Drive 链接下载）。
 3. **Notion 引导主页**
    - 链接：<https://chuanban.notion.site/chuanban-antigravity-theme-patch-db7c5846f37546be9481cd791aed0554>

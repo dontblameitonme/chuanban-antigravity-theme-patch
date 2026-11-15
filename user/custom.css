@@ -5,3 +5,18 @@
  * 2. 修改本文件保存后，常驻守护进程会在 2.5 秒内自动检测并热重载生效，无需重启服务。
  * 3. 若排障时怀疑自定义样式冲突，可运行 `node install.mjs verify --safe-mode` 临时隔离。
  * ============================================================================ */
+
+/* 去掉模型选择右侧实时指标胶囊左侧的小竖线，并使用纯 Windows 系统字体 */
+:is(html[data-ag-theme-mode="dark"] body, body.dark) #ag-live-metrics-pill,
+#ag-live-metrics-pill {
+  border-left: none !important;
+  padding-left: 6px !important;
+  font-family: system-ui, "Segoe UI", "Microsoft YaHei UI", sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+#ag-live-metrics-pill #ag-live-metrics-text,
+#ag-live-metrics-tooltip {
+  font-family: system-ui, "Segoe UI", "Microsoft YaHei UI", sans-serif !important;
+  letter-spacing: normal !important;
+}
