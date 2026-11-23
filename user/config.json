@@ -1,15 +1,19 @@
 {
   "enabled": true,
   "channel": "auto",
-  "preset": "high-contrast",
+  "preset": "morandi",
+  "darkPreset": "onyx",
+  "installedLocale": "none",
   "contextLimit": 256000,
   "modules": {
     "i18n": false,
     "metrics": true,
+    "tokenAnalytics": true,
     "composerWaxSeal": false,
     "deadlockHealer": true,
     "coldBootHealer": true,
     "zoomShortcuts": true,
+    "cdpAutoRelaunch": true,
     "customCss": true,
     "customJs": true
   },

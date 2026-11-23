@@ -99,7 +99,23 @@
     return changed;
   }
 
+  function cleanFontFaces() {
+    const ffStyle = document.getElementById('ag-font-faces');
+    if (ffStyle) {
+      ffStyle.disabled = true;
+      if (ffStyle.sheet) {
+        try {
+          while (ffStyle.sheet.cssRules.length > 0) {
+            ffStyle.sheet.deleteRule(0);
+          }
+        } catch {}
+      }
+      ffStyle.textContent = '';
+    }
+  }
+
   function applyCleanOverrides() {
+    cleanFontFaces();
     const baseStyle = document.getElementById('ag-custom-fonts');
     if (!baseStyle || !baseStyle.sheet || baseStyle.dataset.agUserStripped === '1') return;
     if (stripCustomOverrides(baseStyle.sheet)) {
