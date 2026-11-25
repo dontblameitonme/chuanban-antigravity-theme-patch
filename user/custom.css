@@ -28,3 +28,28 @@ html[data-ag-theme-mode] body .agy-sidebar-row[data-selected="true"],
 .agy-sidebar-row[data-selected="true"] {
   box-shadow: none !important;
 }
+
+/* 加深 claude-warm 深色模式主页与侧栏底色，保留 Claude 暖炭黑 + 象牙白 + 陶土橙配色层次 */
+html[data-ag-dark-preset="claude-warm"][data-ag-theme-mode="dark"],
+html[data-ag-dark-preset="claude-warm"][data-ag-theme-mode="dark"] body,
+html[data-ag-dark-preset="claude-warm"] body.dark,
+html[data-ag-dark-preset="claude-warm"] body.theme-dark,
+html[data-ag-dark-preset="claude-warm"] body[data-agy-theme].dark,
+html[data-ag-dark-preset="claude-warm"][data-ag-preset] body.dark,
+html[data-ag-dark-preset="claude-warm"][data-ag-preset] body[data-agy-theme].dark {
+  --background: #191816 !important;
+  --body-background: #191816 !important;
+  --content: #191816 !important;
+  --shell: #131210 !important;
+  --sidebar: #131210 !important;
+  --vscode-sideBar-background: #131210 !important;
+  --ag-composer-tray-bg: #131210 !important;
+  --onyx-frame: #131210 !important;
+  --onyx-well: #161513 !important;
+  --card: #21201D !important;
+  --ag-composer-card-bg: #21201D !important;
+  --onyx-raised: #21201D !important;
+  --glass: #1E1D1A !important;
+  --onyx-selected: #2B2925 !important;
+  --onyx-key: #34312C !important;
+}
