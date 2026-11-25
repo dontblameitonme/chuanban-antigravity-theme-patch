@@ -71,6 +71,7 @@ node install.mjs verify
 
 ## 📖 Documentation
 
+- **[PATCHES.md](PATCHES.md)**: Maintenance guide, full list of custom modifications, and upstream merge checklist for AI Agents.
 - **[SKILL.md](SKILL.md)**: Technical architecture, lifecycle CLI commands (`doctor`, `install`, `verify`, `relaunch`, `rollback`, `uninstall`), and user customization guide.
 - **[CHANGELOG.md](CHANGELOG.md)**: Full upstream version history and changelog.
 
