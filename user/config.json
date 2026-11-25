@@ -2,7 +2,7 @@
   "enabled": true,
   "channel": "auto",
   "preset": "morandi",
-  "darkPreset": "onyx",
+  "darkPreset": "claude-warm",
   "installedLocale": "none",
   "contextLimit": 256000,
   "modules": {

@@ -20,3 +20,11 @@
   font-family: system-ui, "Segoe UI", "Microsoft YaHei UI", sans-serif !important;
   letter-spacing: normal !important;
 }
+
+/* 去掉左侧会话列表选中项最左侧的 2px 竖线高亮，恢复纯圆角胶囊选中背景 */
+html[data-ag-preset][data-ag-dark-preset] body[data-agy-theme].dark .agy-sidebar-row[data-selected="true"],
+html[data-ag-preset][data-ag-dark-preset] body[data-agy-theme]:not(.dark) .agy-sidebar-row[data-selected="true"],
+html[data-ag-theme-mode] body .agy-sidebar-row[data-selected="true"],
+.agy-sidebar-row[data-selected="true"] {
+  box-shadow: none !important;
+}
