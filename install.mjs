@@ -42,6 +42,11 @@ const WINDOWS_SARASA_SPLIT_VIEW_URL = 'https://drive.google.com/file/d/1iVVvZXtw
 const SARASA_GITHUB_RELEASES_URL = 'https://github.com/be5invis/Sarasa-Gothic/releases';
 const NOTION_GUIDE_URL = 'https://chuanban.notion.site/chuanban-antigravity-theme-patch-db7c5846f37546be9481cd791aed0554';
 const GITHUB_REPO_URL = 'https://github.com/Anarcadia/chuanban-antigravity-theme-patch';
+const R2_FONT_MIRROR_BASE_URL = 'https://img.chuanban.cc/fonts/chuanban-suite';
+const GITHUB_FONT_MIRROR_TAG = 'fonts-sarasa-v1.0.43';
+const GITHUB_FONT_MIRROR_BASE_URL = `${GITHUB_REPO_URL}/releases/download/${GITHUB_FONT_MIRROR_TAG}`;
+const R2_SARASA_SPLIT_URL = `${R2_FONT_MIRROR_BASE_URL}/Windows-Sarasa-Split-SC-TTF-v1.0.43.zip`;
+const GITHUB_SARASA_SPLIT_URL = `${GITHUB_FONT_MIRROR_BASE_URL}/Windows-Sarasa-Split-SC-TTF-v1.0.43.zip`;
 
 function buildGoogleDriveDirectUrl(fileId) {
   return `https://drive.usercontent.google.com/download?id=${encodeURIComponent(fileId)}&export=download&confirm=t`;
@@ -53,7 +58,12 @@ const FONT_DOWNLOAD_CATALOG = {
     label: 'Anthropic Serif Regular',
     filename: 'AnthropicSerif-Regular.ttf',
     driveFileId: '1RZ1rMYYFlr5B-slSSZV-DCJtv5AfTMUV',
-    url: buildGoogleDriveDirectUrl('1RZ1rMYYFlr5B-slSSZV-DCJtv5AfTMUV'),
+    sha256: '5806e7fbfebfe6683fdb2c16d8eb91b98ccd6b4ba0d477e8f5167782e0d7b009',
+    mirrors: [
+      { id: 'cloudflare-r2', url: `${R2_FONT_MIRROR_BASE_URL}/AnthropicSerif-Regular.ttf` },
+      { id: 'google-drive', url: buildGoogleDriveDirectUrl('1RZ1rMYYFlr5B-slSSZV-DCJtv5AfTMUV') }
+    ],
+    url: `${R2_FONT_MIRROR_BASE_URL}/AnthropicSerif-Regular.ttf`,
     kind: 'font',
     minBytes: 100 * 1024,
     timeoutSec: 120
@@ -63,7 +73,12 @@ const FONT_DOWNLOAD_CATALOG = {
     label: 'Anthropic Serif Bold',
     filename: 'AnthropicSerif-Bold.ttf',
     driveFileId: '1-LJfTa1wasIqkoCCHI4mfVyh8tzreiAO',
-    url: buildGoogleDriveDirectUrl('1-LJfTa1wasIqkoCCHI4mfVyh8tzreiAO'),
+    sha256: '3e0d9660390f1800f229e2724cf0b09030ec53188cd3d361ca210077ce564426',
+    mirrors: [
+      { id: 'cloudflare-r2', url: `${R2_FONT_MIRROR_BASE_URL}/AnthropicSerif-Bold.ttf` },
+      { id: 'google-drive', url: buildGoogleDriveDirectUrl('1-LJfTa1wasIqkoCCHI4mfVyh8tzreiAO') }
+    ],
+    url: `${R2_FONT_MIRROR_BASE_URL}/AnthropicSerif-Bold.ttf`,
     kind: 'font',
     minBytes: 100 * 1024,
     timeoutSec: 120
@@ -73,7 +88,12 @@ const FONT_DOWNLOAD_CATALOG = {
     label: 'Anthropic Mono Regular',
     filename: 'AnthropicMono-Regular.ttf',
     driveFileId: '1NK_1Q2MBl5yHw94pC_kbzybDgqEFCZVk',
-    url: buildGoogleDriveDirectUrl('1NK_1Q2MBl5yHw94pC_kbzybDgqEFCZVk'),
+    sha256: '0e686e9d651bf3b7448bbc7ec5c5ffd48e3ae9b07710d26ed332170487f60295',
+    mirrors: [
+      { id: 'cloudflare-r2', url: `${R2_FONT_MIRROR_BASE_URL}/AnthropicMono-Regular.ttf` },
+      { id: 'google-drive', url: buildGoogleDriveDirectUrl('1NK_1Q2MBl5yHw94pC_kbzybDgqEFCZVk') }
+    ],
+    url: `${R2_FONT_MIRROR_BASE_URL}/AnthropicMono-Regular.ttf`,
     kind: 'font',
     minBytes: 50 * 1024,
     timeoutSec: 120
@@ -83,8 +103,14 @@ const FONT_DOWNLOAD_CATALOG = {
     label: 'Sarasa Gothic SC Split TTF (14 weights, 170 MB ZIP)',
     filename: 'Windows-Sarasa-Split-SC-TTF-v1.0.43.zip',
     driveFileId: '1iVVvZXtwUcDiHy42tJ25X6N-JlOf3l7A',
-    url: buildGoogleDriveDirectUrl('1iVVvZXtwUcDiHy42tJ25X6N-JlOf3l7A'),
-    viewUrl: WINDOWS_SARASA_SPLIT_VIEW_URL,
+    sha256: '5add515b1bdc35a246e2507f34b3fce45e517e156842e81a948ca91e51dafde3',
+    mirrors: [
+      { id: 'cloudflare-r2', url: R2_SARASA_SPLIT_URL },
+      { id: 'github-release', url: GITHUB_SARASA_SPLIT_URL },
+      { id: 'google-drive', url: buildGoogleDriveDirectUrl('1iVVvZXtwUcDiHy42tJ25X6N-JlOf3l7A') }
+    ],
+    url: R2_SARASA_SPLIT_URL,
+    viewUrl: R2_SARASA_SPLIT_URL,
     kind: 'zip',
     minBytes: 50 * 1024 * 1024,
     timeoutSec: 600
@@ -94,7 +120,12 @@ const FONT_DOWNLOAD_CATALOG = {
     label: 'Sarasa Gothic SuperTTC (791 MB TTC, macOS/Linux optional)',
     filename: 'Sarasa-SuperTTC.ttc',
     driveFileId: '1i7mqpF2UpjCSR9oBPvPAD3CB6TJn9mwu',
-    url: buildGoogleDriveDirectUrl('1i7mqpF2UpjCSR9oBPvPAD3CB6TJn9mwu'),
+    sha256: 'c66ea03101e8615e3205dc383323f7a3c3100ef783f228b3d877d38ce84ff314',
+    mirrors: [
+      { id: 'github-release', url: `${GITHUB_FONT_MIRROR_BASE_URL}/Sarasa-SuperTTC.ttc` },
+      { id: 'google-drive', url: buildGoogleDriveDirectUrl('1i7mqpF2UpjCSR9oBPvPAD3CB6TJn9mwu') }
+    ],
+    url: `${GITHUB_FONT_MIRROR_BASE_URL}/Sarasa-SuperTTC.ttc`,
     kind: 'font',
     minBytes: 200 * 1024 * 1024,
     timeoutSec: 1200
@@ -181,7 +212,7 @@ function buildManifest(baseDir = __dirname) {
   }
   const manifest = {
     name: 'chuanban-antigravity-theme-patch',
-    version: '6.0.2',
+    version: '6.0.3',
     minNodeVersion: '22.0.0',
     fullMetricsNodeVersion: '22.13.0',
     distribution: {
@@ -378,6 +409,23 @@ function verifyCoreIntegrity(baseDir = __dirname) {
 // ============================================================================
 // 2. 环境、字体、2.33.0+ CDP Opt-in 状态、M1 启动器与实时 CDP 窗口检查
 // ============================================================================
+function buildWin32LnkSpecsPs() {
+  return [
+    `$lnkSpecs = if ($env:AG_WIN32_LNK_DIRS) {`,
+    `  @($env:AG_WIN32_LNK_DIRS -split ';' | Where-Object { $_ -and (Test-Path -LiteralPath $_) } | ForEach-Object { @{ dir = $_; recurse = $true; depth = 2 } })`,
+    `} else {`,
+    `  @(`,
+    `    @{ dir = [Environment]::GetFolderPath('Desktop'); recurse = $false; depth = 0 },`,
+    `    @{ dir = [Environment]::GetFolderPath('CommonDesktopDirectory'); recurse = $false; depth = 0 },`,
+    `    @{ dir = (Join-Path $env:APPDATA 'Microsoft\\Windows\\Start Menu\\Programs'); recurse = $true; depth = 2 },`,
+    `    @{ dir = (Join-Path $env:ProgramData 'Microsoft\\Windows\\Start Menu\\Programs'); recurse = $true; depth = 2 },`,
+    `    @{ dir = (Join-Path $env:APPDATA 'Microsoft\\Internet Explorer\\Quick Launch\\User Pinned\\TaskBar'); recurse = $false; depth = 0 }`,
+    `  ) | Where-Object { $_.dir -and (Test-Path -LiteralPath $_.dir) }`,
+    `}`,
+    `$seenLnkDirs = @{}`
+  ];
+}
+
 function readHostVersionAndProcesses(channel = 'auto') {
   const home = os.homedir();
   const allowStable = channel !== 'insiders';
@@ -423,7 +471,7 @@ function readHostVersionAndProcesses(channel = 'auto') {
         ) {
           continue;
         }
-        const appMatch = cmd.match(/^(\S.*?\/Antigravity(?:\s-\sInsiders)?\.app)\/Contents\/MacOS\/(Antigravity(?:\s-\sInsiders)?)(?:\s|$)/);
+        const appMatch = cmd.match(/^(\/[^\r\n]*?\/Antigravity(?:\s-\sInsiders)?\.app)\/Contents\/MacOS\/(Antigravity(?:\s-\sInsiders)?)(?:\s|$)/);
         if (!appMatch) continue;
         const ch = /Insiders/i.test(appMatch[2]) ? 'insiders' : 'stable';
         if ((ch === 'stable' && !allowStable) || (ch === 'insiders' && !allowInsiders)) continue;
@@ -432,6 +480,7 @@ function readHostVersionAndProcesses(channel = 'auto') {
           channel: ch,
           appPath: appMatch[1],
           exePath: `${appMatch[1]}/Contents/MacOS/${appMatch[2]}`,
+          cmd,
           hasCdpFlag: /--remote-debugging-port(?:=|\s|$)/.test(cmd)
         });
       }
@@ -463,8 +512,8 @@ function readHostVersionAndProcesses(channel = 'auto') {
       `if ($procs.Count -eq 0) { $byName = Get-Process -Name 'Antigravity','Antigravity - Insiders' -ErrorAction SilentlyContinue | Group-Object ProcessName; $procs = @(foreach ($g in $byName) { $p = ($g.Group | Where-Object { $_.MainWindowHandle -ne 0 } | Select-Object -First 1); if ($null -eq $p) { $p = $g.Group | Select-Object -First 1 }; if ($null -ne $p) { $exePath = ''; try { $exePath = [string]$p.Path } catch {}; @{ pid = [int]$p.Id; name = ([string]$p.ProcessName + '.exe'); exe = $exePath; cmd = '' } } }) }`,
       `$lnkOk = $false`,
       `$wsh = New-Object -ComObject WScript.Shell`,
-      `$lnkDirs = if ($env:AG_WIN32_LNK_DIRS) { $env:AG_WIN32_LNK_DIRS -split ';' } else { @([Environment]::GetFolderPath('Desktop'), [Environment]::GetFolderPath('CommonDesktopDirectory'), (Join-Path $env:APPDATA 'Microsoft\\Windows\\Start Menu\\Programs'), (Join-Path $env:ProgramData 'Microsoft\\Windows\\Start Menu\\Programs'), (Join-Path $env:APPDATA 'Microsoft\\Internet Explorer\\Quick Launch\\User Pinned\\TaskBar')) }`,
-      `foreach ($d in $lnkDirs) { if ($d -and (Test-Path -LiteralPath $d)) { Get-ChildItem -LiteralPath $d -Filter '*.lnk' -Recurse -ErrorAction SilentlyContinue | ForEach-Object { try { $s = $wsh.CreateShortcut($_.FullName); $leaf = [IO.Path]::GetFileName([string]$s.TargetPath); $matchTarget = (($leaf -ieq 'Antigravity.exe' -and $allowStable) -or ($leaf -ieq 'Antigravity - Insiders.exe' -and $allowInsiders)); if ($matchTarget -and ($s.Arguments -match '--remote-debugging-port')) { $lnkOk = $true } } catch {} } } }`,
+      ...buildWin32LnkSpecsPs(),
+      `foreach ($spec in $lnkSpecs) { $dk = ([string]$spec.dir).ToLowerInvariant(); if ($seenLnkDirs.ContainsKey($dk)) { continue }; $seenLnkDirs[$dk] = $true; $items = if ($spec.recurse) { Get-ChildItem -LiteralPath $spec.dir -Filter '*.lnk' -File -Recurse -Depth $spec.depth -ErrorAction SilentlyContinue } else { Get-ChildItem -LiteralPath $spec.dir -Filter '*.lnk' -File -ErrorAction SilentlyContinue }; foreach ($item in $items) { try { $s = $wsh.CreateShortcut($item.FullName); $leaf = [IO.Path]::GetFileName([string]$s.TargetPath); $matchTarget = (($leaf -ieq 'Antigravity.exe' -and $allowStable) -or ($leaf -ieq 'Antigravity - Insiders.exe' -and $allowInsiders)); if ($matchTarget -and ($s.Arguments -match '--remote-debugging-port')) { $lnkOk = $true } } catch {} } }`,
       `@{ appVersion = $ver; launcherInstalled = $lnkOk; procs = $procs } | ConvertTo-Json -Compress -Depth 4`
     ]
       .filter(Boolean)
@@ -483,12 +532,14 @@ function readHostVersionAndProcesses(channel = 'auto') {
         runningProcesses = rawProcs
           .map((p) => {
             const ch = /insiders/i.test(p.name || p.exe || '') ? 'insiders' : 'stable';
+            const cmd = String(p.cmd || '');
             return {
               pid: Number(p.pid) || 0,
               channel: ch,
               appPath: '',
               exePath: String(p.exe || existingExe || ''),
-              hasCdpFlag: /--remote-debugging-port(?:=|\s|$)/i.test(String(p.cmd || ''))
+              cmd,
+              hasCdpFlag: /--remote-debugging-port(?:=|\s|$)/i.test(cmd)
             };
           })
           .filter(
@@ -550,6 +601,7 @@ function readHostVersionAndProcesses(channel = 'auto') {
           channel: ch,
           appPath: '',
           exePath: binMatch[1],
+          cmd,
           hasCdpFlag: /--remote-debugging-port(?:=|\s|$)/.test(cmd)
         });
       }
@@ -1194,9 +1246,9 @@ function ensureCdpLaunchers(channel = 'auto', options = {}) {
           '  <key>CFBundlePackageType</key>',
           '  <string>APPL</string>',
           '  <key>CFBundleShortVersionString</key>',
-          '  <string>6.0.2</string>',
+          '  <string>6.0.3</string>',
           '  <key>CFBundleVersion</key>',
-          '  <string>601</string>',
+          '  <string>603</string>',
           ...(iconBase ? ['  <key>CFBundleIconFile</key>', `  <string>${iconBase}</string>`] : []),
           '  <key>LSMinimumSystemVersion</key>',
           '  <string>12.0</string>',
@@ -1239,26 +1291,27 @@ function ensureCdpLaunchers(channel = 'auto', options = {}) {
       `$allowStable = $${allowStable ? 'true' : 'false'}`,
       `$allowInsiders = $${allowInsiders ? 'true' : 'false'}`,
       `$wsh = New-Object -ComObject WScript.Shell`,
-      `$rawDirs = if ($env:AG_WIN32_LNK_DIRS) { $env:AG_WIN32_LNK_DIRS -split ';' } else { @(`,
-      `  [Environment]::GetFolderPath('Desktop'),`,
-      `  [Environment]::GetFolderPath('CommonDesktopDirectory'),`,
-      `  (Join-Path $env:APPDATA 'Microsoft\\Windows\\Start Menu\\Programs'),`,
-      `  (Join-Path $env:ProgramData 'Microsoft\\Windows\\Start Menu\\Programs'),`,
-      `  (Join-Path $env:APPDATA 'Microsoft\\Internet Explorer\\Quick Launch\\User Pinned\\TaskBar')`,
-      `) }`,
-      `$dirs = @($rawDirs | Where-Object { $_ -and (Test-Path -LiteralPath $_) })`,
+      ...buildWin32LnkSpecsPs(),
       `$patched = @(); $already = @(); $skipped = @()`,
-      `foreach ($d in $dirs) {`,
-      `  Get-ChildItem -LiteralPath $d -Filter '*.lnk' -Recurse -ErrorAction SilentlyContinue | ForEach-Object {`,
-      `    $lnkPath = $_.FullName`,
+      `foreach ($spec in $lnkSpecs) {`,
+      `  $dk = ([string]$spec.dir).ToLowerInvariant()`,
+      `  if ($seenLnkDirs.ContainsKey($dk)) { continue }`,
+      `  $seenLnkDirs[$dk] = $true`,
+      `  $items = if ($spec.recurse) {`,
+      `    Get-ChildItem -LiteralPath $spec.dir -Filter '*.lnk' -File -Recurse -Depth $spec.depth -ErrorAction SilentlyContinue`,
+      `  } else {`,
+      `    Get-ChildItem -LiteralPath $spec.dir -Filter '*.lnk' -File -ErrorAction SilentlyContinue`,
+      `  }`,
+      `  foreach ($item in $items) {`,
+      `    $lnkPath = $item.FullName`,
       `    try {`,
       `      $sc = $wsh.CreateShortcut($lnkPath)`,
       `      $leaf = [IO.Path]::GetFileName([string]$sc.TargetPath)`,
       `      $isStable = ($leaf -ieq 'Antigravity.exe')`,
       `      $isIns = ($leaf -ieq 'Antigravity - Insiders.exe')`,
-      `      if ((-not $isStable -or -not $allowStable) -and (-not $isIns -or -not $allowInsiders)) { return }`,
+      `      if ((-not $isStable -or -not $allowStable) -and (-not $isIns -or -not $allowInsiders)) { continue }`,
       `      $argsStr = [string]$sc.Arguments`,
-      `      if ($argsStr -match '--remote-debugging-port') { $already += $lnkPath; return }`,
+      `      if ($argsStr -match '--remote-debugging-port') { $already += $lnkPath; continue }`,
       `      $sc.Arguments = if ($argsStr.Trim()) { "$($argsStr.Trim()) --remote-debugging-port=0" } else { '--remote-debugging-port=0' }`,
       `      $sc.Save()`,
       `      $patched += $lnkPath`,
@@ -1352,18 +1405,19 @@ function removeCdpLaunchers() {
       `[Console]::OutputEncoding = [System.Text.Encoding]::UTF8`,
       `$ErrorActionPreference = 'SilentlyContinue'`,
       `$wsh = New-Object -ComObject WScript.Shell`,
-      `$rawDirs = if ($env:AG_WIN32_LNK_DIRS) { $env:AG_WIN32_LNK_DIRS -split ';' } else { @(`,
-      `  [Environment]::GetFolderPath('Desktop'),`,
-      `  [Environment]::GetFolderPath('CommonDesktopDirectory'),`,
-      `  (Join-Path $env:APPDATA 'Microsoft\\Windows\\Start Menu\\Programs'),`,
-      `  (Join-Path $env:ProgramData 'Microsoft\\Windows\\Start Menu\\Programs'),`,
-      `  (Join-Path $env:APPDATA 'Microsoft\\Internet Explorer\\Quick Launch\\User Pinned\\TaskBar')`,
-      `) }`,
-      `$dirs = @($rawDirs | Where-Object { $_ -and (Test-Path -LiteralPath $_) })`,
-      `foreach ($d in $dirs) {`,
-      `  Get-ChildItem -LiteralPath $d -Filter '*.lnk' -Recurse -ErrorAction SilentlyContinue | ForEach-Object {`,
+      ...buildWin32LnkSpecsPs(),
+      `foreach ($spec in $lnkSpecs) {`,
+      `  $dk = ([string]$spec.dir).ToLowerInvariant()`,
+      `  if ($seenLnkDirs.ContainsKey($dk)) { continue }`,
+      `  $seenLnkDirs[$dk] = $true`,
+      `  $items = if ($spec.recurse) {`,
+      `    Get-ChildItem -LiteralPath $spec.dir -Filter '*.lnk' -File -Recurse -Depth $spec.depth -ErrorAction SilentlyContinue`,
+      `  } else {`,
+      `    Get-ChildItem -LiteralPath $spec.dir -Filter '*.lnk' -File -ErrorAction SilentlyContinue`,
+      `  }`,
+      `  foreach ($item in $items) {`,
       `    try {`,
-      `      $sc = $wsh.CreateShortcut($_.FullName)`,
+      `      $sc = $wsh.CreateShortcut($item.FullName)`,
       `      $leaf = [IO.Path]::GetFileName([string]$sc.TargetPath)`,
       `      if (($leaf -ieq 'Antigravity.exe') -or ($leaf -ieq 'Antigravity - Insiders.exe')) {`,
       `        $orig = [string]$sc.Arguments`,
@@ -1557,6 +1611,85 @@ function buildFontReport(env) {
   };
 }
 
+function extractBaseSemverTuple(verStr) {
+  const m = String(verStr || '').match(/v?(\d+)\.(\d+)\.(\d+)/i);
+  if (!m) return null;
+  return [parseInt(m[1], 10), parseInt(m[2], 10), parseInt(m[3], 10)];
+}
+
+function compareSemverTuples(a, b) {
+  if (!a || !b) return 0;
+  for (let i = 0; i < 3; i++) {
+    if (a[i] !== b[i]) return a[i] > b[i] ? 1 : -1;
+  }
+  return 0;
+}
+
+function inspectSourceSync(sourceDir, targetDir) {
+  if (isSameTargetPath(sourceDir, targetDir)) {
+    return { sameDirectory: true, inSync: true, sourceOlder: false, outdatedFiles: [] };
+  }
+  const srcManifestPath = path.join(sourceDir, 'core', 'manifest.json');
+  const dstManifestPath = path.join(targetDir, 'core', 'manifest.json');
+  if (!fs.existsSync(srcManifestPath)) return null;
+  if (!fs.existsSync(dstManifestPath)) {
+    return {
+      sourceDir,
+      targetDir,
+      inSync: false,
+      sourceOlder: false,
+      reason: 'target_manifest_missing',
+      outdatedFiles: ['core/manifest.json']
+    };
+  }
+  try {
+    const srcManifest = JSON.parse(fs.readFileSync(srcManifestPath, 'utf8'));
+    const dstManifest = JSON.parse(fs.readFileSync(dstManifestPath, 'utf8'));
+    const fileNames = new Set([
+      ...Object.keys(srcManifest.files || {}),
+      ...Object.keys(dstManifest.files || {})
+    ]);
+    const outdatedFiles = [];
+    for (const name of fileNames) {
+      const srcFile = path.join(sourceDir, 'core', name);
+      const dstFile = path.join(targetDir, 'core', name);
+      const srcSha = fs.existsSync(srcFile) ? sha256File(srcFile) : null;
+      const dstSha = fs.existsSync(dstFile) ? sha256File(dstFile) : null;
+      if (srcSha !== dstSha) {
+        outdatedFiles.push(`core/${name}`);
+      }
+    }
+    if (sha256File(srcManifestPath) !== sha256File(dstManifestPath)) {
+      outdatedFiles.push('core/manifest.json');
+    }
+    const srcInstaller = path.join(sourceDir, 'install.mjs');
+    const dstInstaller = path.join(targetDir, 'install.mjs');
+    if (fs.existsSync(srcInstaller) && fs.existsSync(dstInstaller) && sha256File(srcInstaller) !== sha256File(dstInstaller)) {
+      outdatedFiles.push('install.mjs');
+    }
+    const verCmp = compareSemverTuples(
+      extractBaseSemverTuple(srcManifest.version),
+      extractBaseSemverTuple(dstManifest.version)
+    );
+    const sourceOlder = verCmp < 0;
+    return {
+      sourceDir,
+      targetDir,
+      sourceVersion: srcManifest.version || null,
+      targetVersion: dstManifest.version || null,
+      sourceOlder,
+      inSync: outdatedFiles.length === 0,
+      outdatedFiles,
+      syncHint:
+        outdatedFiles.length > 0 && !sourceOlder
+          ? `node ${JSON.stringify(path.join(sourceDir, 'install.mjs'))} install`
+          : null
+    };
+  } catch {
+    return null;
+  }
+}
+
 async function runDoctor() {
   const channel = getArg('--channel', 'auto');
   const defaultTarget = resolveGlobalInstallDir();
@@ -1566,6 +1699,7 @@ async function runDoctor() {
 
   const env = await detectEnvironment(channel);
   const integrity = verifyCoreIntegrity(targetDir);
+  const sourceSync = inspectSourceSync(__dirname, targetDir);
   const live = await inspectLiveWindow(env);
 
   const cdpMissingFlag = !isCustomSandboxTarget && !live.reachable && env.cdpStatus === 'missing_opt_in_flag';
@@ -1597,7 +1731,7 @@ async function runDoctor() {
       cdpStatus: live.reachable ? 'ready' : env.cdpStatus,
       launcherMode,
       launcherInstalled: env.launcherInstalled,
-      runningProcesses: env.runningProcesses,
+      runningProcesses: env.runningProcesses.map(({ cmd: _cmd, ...rest }) => rest),
       remediation,
       portFile: env.portFile,
       portFileExists: env.portFileExists,
@@ -1606,7 +1740,8 @@ async function runDoctor() {
     coreIntegrity: {
       targetDir,
       clean: integrity.ok,
-      modifiedFiles: integrity.modified
+      modifiedFiles: integrity.modified,
+      ...(sourceSync && !sourceSync.sameDirectory ? { sourceSync } : {})
     },
     keepAliveTask: inspectWindowsKeepAliveTask(targetDir),
     liveWindow: live
@@ -2526,6 +2661,449 @@ function isPidRunning(pid) {
   }
 }
 
+function tokenizeRelaunchCmdLine(cmdLine, platform = process.platform) {
+  const src = String(cmdLine || '');
+  const tokens = [];
+  if (platform === 'win32') {
+    // 遵循 Windows CommandLineToArgvW 的 2n / 2n+1 反斜杠 + 双引号规则
+    let cur = '';
+    let inQuotes = false;
+    let hasToken = false;
+    for (let i = 0; i < src.length; i++) {
+      const ch = src[i];
+      if (ch === '\\') {
+        let bsCount = 1;
+        while (i + bsCount < src.length && src[i + bsCount] === '\\') bsCount++;
+        if (i + bsCount < src.length && src[i + bsCount] === '"') {
+          cur += '\\'.repeat(Math.floor(bsCount / 2));
+          hasToken = true;
+          if (bsCount % 2 === 1) {
+            cur += '"';
+          } else {
+            inQuotes = !inQuotes;
+          }
+          i += bsCount;
+          continue;
+        }
+        cur += '\\'.repeat(bsCount);
+        hasToken = true;
+        i += bsCount - 1;
+        continue;
+      }
+      if (ch === '"') {
+        hasToken = true;
+        if (inQuotes && i + 1 < src.length && src[i + 1] === '"') {
+          cur += '"';
+          i++;
+        } else {
+          inQuotes = !inQuotes;
+        }
+        continue;
+      }
+      if (!inQuotes && /\s/.test(ch)) {
+        if (hasToken || cur.length > 0) {
+          tokens.push(cur);
+          cur = '';
+          hasToken = false;
+        }
+        continue;
+      }
+      cur += ch;
+      hasToken = true;
+    }
+    if (hasToken || cur.length > 0) tokens.push(cur);
+    return tokens;
+  }
+
+  // POSIX ps -axo command= 输出无外层 shell 引号，禁用单引号配对以免路径中的撇号（如 John's Repo）吞没后续参数
+  let cur = '';
+  let inDoubleQuote = false;
+  for (let i = 0; i < src.length; i++) {
+    const ch = src[i];
+    if (inDoubleQuote) {
+      if (ch === '\\' && i + 1 < src.length && src[i + 1] === '"') {
+        cur += '"';
+        i++;
+      } else if (ch === '"') {
+        inDoubleQuote = false;
+      } else {
+        cur += ch;
+      }
+    } else if (ch === '"') {
+      inDoubleQuote = true;
+    } else if (/\s/.test(ch)) {
+      if (cur.length > 0) {
+        tokens.push(cur);
+        cur = '';
+      }
+    } else {
+      cur += ch;
+    }
+  }
+  if (cur.length > 0) tokens.push(cur);
+  return tokens;
+}
+
+function stripLeadingExecutableFromCmdLine(cmdLine, exePath = '', platform = process.platform) {
+  const src = String(cmdLine || '').trimStart();
+  if (!src) return '';
+  const exe = String(exePath || '').trim();
+  if (exe) {
+    const cmpSrc = platform === 'win32' ? src.toLowerCase() : src;
+    const cmpExe = platform === 'win32' ? exe.toLowerCase() : exe;
+    const quotedExe = `"${cmpExe}"`;
+    if (cmpSrc.startsWith(quotedExe)) {
+      const rest = src.slice(quotedExe.length);
+      if (!rest || /^\s/.test(rest)) return rest.trimStart();
+    }
+    if (cmpSrc.startsWith(cmpExe)) {
+      const rest = src.slice(cmpExe.length);
+      if (!rest || /^\s/.test(rest)) return rest.trimStart();
+    }
+  }
+  if (platform === 'darwin') {
+    const macAppMatch = src.match(
+      /^(?:"[^"]+"|\S.*?\/Antigravity(?:\s-\sInsiders)?\.app\/Contents\/MacOS\/Antigravity(?:\s-\sInsiders)?)(?=\s|$)/
+    );
+    if (macAppMatch) return src.slice(macAppMatch[0].length).trimStart();
+  } else if (platform === 'win32') {
+    const winExeMatch = src.match(/^(?:"[^"]+"|[a-zA-Z]:\\[^\r\n]*?\.exe)(?=\s|$)/i);
+    if (winExeMatch) return src.slice(winExeMatch[0].length).trimStart();
+  }
+  if (src.startsWith('"')) {
+    const endQuote = src.indexOf('"', 1);
+    if (endQuote > 0) return src.slice(endQuote + 1).trimStart();
+  }
+  const firstWs = src.search(/\s/);
+  return firstWs < 0 ? '' : src.slice(firstWs + 1).trimStart();
+}
+
+function readLinuxProcCmdlineArgs(pid, platform = process.platform) {
+  if (platform !== 'linux' || !Number.isInteger(pid) || pid <= 0) return null;
+  try {
+    const raw = fs.readFileSync(`/proc/${pid}/cmdline`);
+    if (!raw || raw.length === 0) return null;
+    const parts = raw.toString('utf8').split('\0');
+    if (parts.length > 0 && parts[parts.length - 1] === '') parts.pop();
+    return parts.length > 1 ? parts.slice(1) : [];
+  } catch {
+    return null;
+  }
+}
+
+function normalizeProxyUrl(address, defaultScheme = 'http') {
+  const raw = String(address || '').trim();
+  if (!raw) return '';
+  // Chromium --proxy-server 允许逗号分隔回退链（如 http://127.0.0.1:7890,direct://），提取首个真实代理节点
+  const firstHop = raw
+    .split(',')
+    .map((s) => s.trim())
+    .find((s) => s && !/^direct:\/\//i.test(s));
+  if (!firstHop) return '';
+  if (/^[a-z][a-z0-9+.-]*:\/\//i.test(firstHop)) return firstHop;
+  return `${defaultScheme}://${firstHop}`;
+}
+
+function parseProxyServerSpec(raw) {
+  const text = String(raw || '').trim();
+  if (!text) return null;
+  if (!text.includes('=')) {
+    const url = normalizeProxyUrl(text, 'http');
+    return url ? { httpProxy: url, httpsProxy: url } : null;
+  }
+  const map = Object.create(null);
+  for (const entry of text.split(';')) {
+    const eq = entry.indexOf('=');
+    if (eq <= 0) continue;
+    const scheme = entry.slice(0, eq).trim().toLowerCase();
+    const val = entry.slice(eq + 1).trim();
+    if (scheme && val) map[scheme] = val;
+  }
+  let httpProxy = map.http ? normalizeProxyUrl(map.http, 'http') : '';
+  let httpsProxy = map.https ? normalizeProxyUrl(map.https, 'http') : '';
+  if (map.socks) {
+    // WinINet 注册表中的 socks= 协议名无版本后缀，现代本地代理客户端普遍提供 SOCKS5 混合监听，Go net/http 亦仅支持 socks5://
+    const socks = normalizeProxyUrl(map.socks, 'socks5');
+    if (!httpProxy) httpProxy = socks;
+    if (!httpsProxy) httpsProxy = socks;
+  }
+  if (!httpProxy && httpsProxy) httpProxy = httpsProxy;
+  if (!httpsProxy && httpProxy) httpsProxy = httpProxy;
+  if (!httpProxy && !httpsProxy) {
+    const firstVal = Object.values(map)[0];
+    if (firstVal) {
+      const url = normalizeProxyUrl(firstVal, 'http');
+      httpProxy = url;
+      httpsProxy = url;
+    }
+  }
+  return httpProxy || httpsProxy ? { httpProxy, httpsProxy } : null;
+}
+
+function normalizeBypassTokenForNoProxy(rawEntry) {
+  const trimmed = String(rawEntry || '').trim();
+  if (!trimmed) return '';
+  const low = trimmed.toLowerCase();
+  if (low === '<local>' || low === '<-loopback>') return '';
+  if (low === '[::1]') return '::1';
+  if (trimmed === '*.*.*.*') return '*';
+
+  // 分离非 IPv6 末尾端口（如 192.168.1.*:8080 或 *corp.com:8443）
+  let hostPart = trimmed;
+  let portSuffix = '';
+  const firstColon = trimmed.indexOf(':');
+  const lastColon = trimmed.lastIndexOf(':');
+  if (firstColon > 0 && firstColon === lastColon && /^\d{1,5}$/.test(trimmed.slice(firstColon + 1))) {
+    hostPart = trimmed.slice(0, firstColon);
+    portSuffix = trimmed.slice(firstColon);
+  }
+
+  if (/^\d{1,3}(?:\.(?:\d{1,3}|\*)){1,3}$/.test(hostPart) && hostPart.includes('*')) {
+    const parts = hostPart.split('.');
+    const starIdx = parts.indexOf('*');
+    if (starIdx >= 1 && starIdx <= 3 && parts.slice(starIdx).every((p) => p === '*')) {
+      const nums = parts.slice(0, starIdx).map((n) => Number(n));
+      if (nums.every((n) => Number.isInteger(n) && n >= 0 && n <= 255)) {
+        const octets = [...nums, 0, 0, 0].slice(0, 4);
+        // Go httpproxy 对 CIDR 条目不支持附带端口后缀，统一输出标准网段 CIDR
+        return `${octets.join('.')}/${starIdx * 8}`;
+      }
+    }
+    return '';
+  }
+
+  // WinINet 允许 *corp.com（无点号），近似转换为 Go/Node 支持的子域后缀 .corp.com
+  if (/^\*[a-z0-9][a-z0-9.-]*\.[a-z]{2,}$/i.test(hostPart)) {
+    return `.${hostPart.slice(1)}${portSuffix}`;
+  }
+
+  return `${hostPart}${portSuffix}`;
+}
+
+function parseBypassListEntries(raw) {
+  const out = [];
+  for (const part of String(raw || '').split(/[;,\s]+/)) {
+    const norm = normalizeBypassTokenForNoProxy(part);
+    if (norm) out.push(norm);
+  }
+  return out;
+}
+
+function mergeNoProxyValue(existingRaw, extraEntries = []) {
+  const LOOPBACK_ENTRIES = ['localhost', '127.0.0.1', '::1'];
+  const merged = [];
+  const seen = new Set();
+  const pushItem = (rawItem) => {
+    const norm = normalizeBypassTokenForNoProxy(rawItem);
+    if (!norm) return;
+    const key = norm.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    merged.push(norm);
+  };
+  for (const part of String(existingRaw || '').split(/[,;]+/)) {
+    pushItem(part);
+  }
+  for (const extra of extraEntries) {
+    pushItem(extra);
+  }
+  for (const lb of LOOPBACK_ENTRIES) {
+    pushItem(lb);
+  }
+  return merged.join(',');
+}
+
+function extractRelaunchArgsFromCmdLine(cmdLine, meta = {}) {
+  const platform = meta?.platform || process.platform;
+  const procTokens = Array.isArray(meta?.procArgs)
+    ? meta.procArgs
+    : readLinuxProcCmdlineArgs(meta?.pid, platform);
+  const tokens =
+    procTokens !== null
+      ? procTokens
+      : (() => {
+          const rest = stripLeadingExecutableFromCmdLine(cmdLine, meta?.exePath || '', platform);
+          return rest ? tokenizeRelaunchCmdLine(rest, platform) : [];
+        })();
+  if (tokens.length === 0) return { allArgs: [], preservedProxyArgs: [] };
+
+  const VALUE_FLAGS = new Set(['--proxy-server', '--proxy-bypass-list', '--proxy-pac-url']);
+  const BOOL_FLAGS = new Set(['--no-proxy-server', '--proxy-auto-detect']);
+  const DROP_EXACT_FLAGS = new Set(['--updated', '--remote-debugging-pipe', '--inspect', '--inspect-brk']);
+  const DROP_VALUE_FLAGS = new Set(['--remote-debugging-port', '--type']);
+  const DROP_PREFIXES = ['--squirrel-', '-psn_', '--inspect=', '--inspect-brk='];
+  const allArgs = [];
+  const preservedProxyArgs = [];
+  const seenProxy = new Set();
+  for (let i = 0; i < tokens.length; i++) {
+    const tok = tokens[i];
+    if (!tok) continue;
+    if (tok.startsWith('-')) {
+      const lowTok = tok.toLowerCase();
+      if (DROP_PREFIXES.some((pfx) => lowTok.startsWith(pfx))) {
+        continue;
+      }
+      const eqIdx = tok.indexOf('=');
+      const flag = (eqIdx >= 0 ? tok.slice(0, eqIdx) : tok).toLowerCase();
+      if (DROP_EXACT_FLAGS.has(flag)) continue;
+      if (DROP_VALUE_FLAGS.has(flag)) {
+        if (eqIdx < 0 && i + 1 < tokens.length && !tokens[i + 1].startsWith('-')) {
+          i++;
+        }
+        continue;
+      }
+      if (BOOL_FLAGS.has(flag)) {
+        if (!seenProxy.has(flag)) {
+          seenProxy.add(flag);
+          preservedProxyArgs.push(flag);
+          allArgs.push(flag);
+        }
+        continue;
+      }
+      if (VALUE_FLAGS.has(flag)) {
+        let val = '';
+        if (eqIdx >= 0) {
+          val = tok.slice(eqIdx + 1).trim();
+        } else if (i + 1 < tokens.length && !tokens[i + 1].startsWith('--')) {
+          val = tokens[++i].trim();
+        }
+        if (val && !seenProxy.has(flag)) {
+          seenProxy.add(flag);
+          const normalized = `${flag}=${val}`;
+          preservedProxyArgs.push(normalized);
+          allArgs.push(normalized);
+        }
+        continue;
+      }
+      if (platform === 'darwin') {
+        if (tok.startsWith('--')) {
+          allArgs.push(tok);
+        }
+        continue;
+      }
+    } else if (platform === 'darwin') {
+      // macOS ps -axo command= 不带引号，丢弃无引号位置路径碎片，交由 Electron 原生会话记忆恢复打开的工作区
+      continue;
+    }
+    allArgs.push(tok);
+  }
+  return { allArgs, preservedProxyArgs };
+}
+
+function readWindowsSystemProxyFresh() {
+  if (process.platform !== 'win32') return null;
+  try {
+    const r = spawnSync('reg', ['query', 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings'], {
+      encoding: 'utf8',
+      windowsHide: true,
+      timeout: 3000
+    });
+    if (r.status !== 0 || !r.stdout) return null;
+    const out = String(r.stdout);
+    const enabledMatch = out.match(/ProxyEnable[ \t]+REG_DWORD[ \t]+0x([0-9a-f]+)/i);
+    if (!enabledMatch || parseInt(enabledMatch[1], 16) !== 1) return null;
+    const serverMatch = out.match(/ProxyServer[ \t]+REG_SZ[ \t]*([^\r\n]*)/i);
+    if (!serverMatch || !serverMatch[1].trim()) return null;
+    const parsed = parseProxyServerSpec(serverMatch[1]);
+    if (!parsed) return null;
+    const overrideMatch = out.match(/ProxyOverride[ \t]+REG_SZ[ \t]*([^\r\n]*)/i);
+    const rawBypassList = overrideMatch ? overrideMatch[1].trim() : '';
+    return {
+      ...parsed,
+      rawBypassList,
+      noProxyEntries: parseBypassListEntries(rawBypassList)
+    };
+  } catch {
+    return null;
+  }
+}
+
+function redactProxyCredentials(text) {
+  return String(text || '').replace(/(:\/\/)([^@\s/]+)@/g, '$1<redacted>@');
+}
+
+function readEnvCaseInsensitive(envObj, keyName, joinAll = false) {
+  const target = keyName.toLowerCase();
+  const vals = [];
+  for (const [k, v] of Object.entries(envObj)) {
+    if (k.toLowerCase() === target && v !== undefined && v !== null && String(v).trim() !== '') {
+      if (!joinAll) return String(v);
+      vals.push(String(v));
+    }
+  }
+  return joinAll ? vals.join(',') : '';
+}
+
+function writeProxyEnvPair(envObj, upperKey, val, platform = process.platform) {
+  const lowerKey = upperKey.toLowerCase();
+  if (platform === 'win32') {
+    for (const k of Object.keys(envObj)) {
+      if (k.toLowerCase() === lowerKey && k !== upperKey) {
+        delete envObj[k];
+      }
+    }
+    envObj[upperKey] = val;
+  } else {
+    envObj[upperKey] = val;
+    envObj[lowerKey] = val;
+  }
+}
+
+function buildRelaunchPlan(cmdLine, targetMeta = {}) {
+  const platform = targetMeta?.platform || process.platform;
+  const { allArgs, preservedProxyArgs } = extractRelaunchArgsFromCmdLine(cmdLine, targetMeta);
+  const args = ['--remote-debugging-port=0', ...allArgs];
+  const env = { ...(targetMeta?.baseEnv || process.env) };
+  const hasExplicitNoProxyFlag = preservedProxyArgs.includes('--no-proxy-server');
+  const proxyBypassArg = preservedProxyArgs.find((a) => a.startsWith('--proxy-bypass-list='));
+  const cliBypassEntries = proxyBypassArg
+    ? parseBypassListEntries(proxyBypassArg.slice('--proxy-bypass-list='.length))
+    : [];
+  const hasAnyProxyEnv = () =>
+    Boolean(
+      readEnvCaseInsensitive(env, 'HTTP_PROXY') ||
+        readEnvCaseInsensitive(env, 'HTTPS_PROXY') ||
+        readEnvCaseInsensitive(env, 'ALL_PROXY')
+    );
+
+  let proxySource = 'none';
+  let extraBypassEntries = [...cliBypassEntries];
+  if (hasExplicitNoProxyFlag) {
+    proxySource = 'cli-no-proxy';
+  } else if (hasAnyProxyEnv()) {
+    proxySource = 'inherited-env';
+  } else {
+    const proxyServerArg = preservedProxyArgs.find((a) => a.startsWith('--proxy-server='));
+    let resolved = proxyServerArg ? parseProxyServerSpec(proxyServerArg.slice('--proxy-server='.length)) : null;
+    if (resolved) {
+      proxySource = 'cli-proxy-flag';
+    } else if (platform === 'win32') {
+      resolved = readWindowsSystemProxyFresh();
+      if (resolved) proxySource = 'win32-system-proxy';
+    }
+    if (resolved) {
+      if (resolved.httpProxy) {
+        writeProxyEnvPair(env, 'HTTP_PROXY', resolved.httpProxy, platform);
+      }
+      if (resolved.httpsProxy) {
+        writeProxyEnvPair(env, 'HTTPS_PROXY', resolved.httpsProxy, platform);
+      }
+      if (Array.isArray(resolved.noProxyEntries)) {
+        extraBypassEntries = [...extraBypassEntries, ...resolved.noProxyEntries];
+      }
+    }
+  }
+
+  // 只要最终环境携带任意 *_PROXY（包括 --no-proxy-server 下仍从父进程继承 HTTP_PROXY 的场景），一律合并环回与绕行列表以防 Node 侧代理库劫持环回请求
+  if (hasAnyProxyEnv()) {
+    const existingNoProxy = readEnvCaseInsensitive(env, 'NO_PROXY', true);
+    const mergedNoProxy = mergeNoProxyValue(existingNoProxy, extraBypassEntries);
+    writeProxyEnvPair(env, 'NO_PROXY', mergedNoProxy, platform);
+  }
+
+  return { args, env, preservedProxyArgs, proxySource };
+}
+
 async function runRelaunch() {
   const channel = getArg('--channel', 'auto');
   const force = hasFlag('--force');
@@ -2609,6 +3187,9 @@ async function runRelaunch() {
     }
   }
 
+  // 在终止旧主进程之前提前构建重启计划（确保 Linux 下 /proc/<pid>/cmdline 存活可读）
+  const relaunchPlan = buildRelaunchPlan(launchTarget.cmd, launchTarget);
+
   for (const p of procsToStop) {
     if (process.platform === 'darwin' && p.appPath) {
       spawnSync('osascript', ['-e', `tell application "${p.appPath}" to quit`], { stdio: 'ignore', timeout: 3000 });
@@ -2639,13 +3220,15 @@ async function runRelaunch() {
   sleepSync(250);
 
   if (process.platform === 'darwin' && launchTarget.appPath) {
-    spawnSync('/usr/bin/open', ['-a', launchTarget.appPath, '--args', '--remote-debugging-port=0'], {
+    spawnSync('/usr/bin/open', ['-a', launchTarget.appPath, '--args', ...relaunchPlan.args], {
+      env: relaunchPlan.env,
       stdio: 'ignore',
       timeout: 5000
     });
   } else if (launchTarget.exePath) {
-    const child = spawn(launchTarget.exePath, ['--remote-debugging-port=0'], {
+    const child = spawn(launchTarget.exePath, relaunchPlan.args, {
       cwd: os.homedir(),
+      env: relaunchPlan.env,
       detached: true,
       stdio: 'ignore',
       windowsHide: false
@@ -2678,6 +3261,8 @@ async function runRelaunch() {
       {
         ok,
         stoppedPids: procsToStop.map((p) => p.pid),
+        proxySource: relaunchPlan.proxySource,
+        preservedProxyArgs: relaunchPlan.preservedProxyArgs.map(redactProxyCredentials),
         version: live.state?.version || null,
         themeStyle: Boolean(live.state?.hasStyle),
         dictCount: live.state?.dictCount || 0,
@@ -2870,13 +3455,28 @@ function detectWindowsSystemProxy() {
   return _cachedWinSystemProxy;
 }
 
-function validateDownloadedBinary(filePath, { kind = 'font', minBytes = 1024 } = {}) {
+function sha256FileChunked(filePath) {
+  const hash = crypto.createHash('sha256');
+  const fd = fs.openSync(filePath, 'r');
+  const buf = Buffer.allocUnsafe(256 * 1024);
+  try {
+    let bytesRead = 0;
+    while ((bytesRead = fs.readSync(fd, buf, 0, buf.length, null)) > 0) {
+      hash.update(bytesRead === buf.length ? buf : buf.subarray(0, bytesRead));
+    }
+  } finally {
+    fs.closeSync(fd);
+  }
+  return hash.digest('hex');
+}
+
+function validateDownloadedBinary(filePath, { kind = 'font', minBytes = 1024, sha256 = null } = {}) {
   try {
     if (!fs.existsSync(filePath)) return { ok: false, reason: 'file_missing', bytes: 0 };
     const st = fs.statSync(filePath);
     const bytes = st.size;
     const fd = fs.openSync(filePath, 'r');
-    const head = Buffer.alloc(Math.min(64, Math.max(0, bytes)));
+    const head = Buffer.alloc(Math.min(512, Math.max(0, bytes)));
     try {
       if (head.length > 0) fs.readSync(fd, head, 0, head.length, 0);
     } finally {
@@ -2884,7 +3484,13 @@ function validateDownloadedBinary(filePath, { kind = 'font', minBytes = 1024 } =
     }
     const asciiPrefix = head.toString('utf8').trimStart().toLowerCase();
     if (asciiPrefix.startsWith('<!doctype') || asciiPrefix.startsWith('<html') || asciiPrefix.startsWith('<?xml')) {
-      return { ok: false, reason: 'html_interstitial_or_quota_exceeded', bytes };
+      const isQuotaExceeded = /quota exceeded|too many users have viewed or downloaded/i.test(asciiPrefix);
+      return {
+        ok: false,
+        reason: isQuotaExceeded ? 'quota_exceeded_html' : 'html_interstitial_or_quota_exceeded',
+        bytes,
+        circuitBreakMirror: true
+      };
     }
     if (bytes < minBytes) {
       return { ok: false, reason: 'file_too_small', bytes, minBytes };
@@ -2898,13 +3504,77 @@ function validateDownloadedBinary(filePath, { kind = 'font', minBytes = 1024 } =
       const isValidFont = isTtf || tag === 'OTTO' || tag === 'true' || tag === 'ttcf';
       if (!isValidFont) return { ok: false, reason: 'invalid_font_magic', bytes };
     }
+    if (sha256) {
+      const actualSha = sha256FileChunked(filePath);
+      if (actualSha.toLowerCase() !== String(sha256).toLowerCase()) {
+        return {
+          ok: false,
+          reason: 'sha256_mismatch',
+          bytes,
+          expectedSha256: String(sha256).toLowerCase(),
+          actualSha256: actualSha
+        };
+      }
+      return { ok: true, bytes, sha256: actualSha };
+    }
     return { ok: true, bytes };
   } catch (err) {
     return { ok: false, reason: 'validation_error', error: String(err?.message || err), bytes: 0 };
   }
 }
 
-async function downloadFontAsset(asset, downloadDir, { force = false } = {}) {
+function resolveAssetMirrors(asset, { preferredMirror = null, mirrorOrder = null } = {}) {
+  const baseMirrors =
+    Array.isArray(asset.mirrors) && asset.mirrors.length > 0
+      ? asset.mirrors.map((m) => ({ id: m.id || 'default', url: m.url }))
+      : [{ id: 'default', url: asset.url }];
+
+  if (Array.isArray(mirrorOrder) && mirrorOrder.length > 0) {
+    const ordered = [];
+    const seen = new Set();
+    for (const id of mirrorOrder) {
+      const found = baseMirrors.find((m) => m.id === id);
+      if (found && !seen.has(found.id)) {
+        ordered.push(found);
+        seen.add(found.id);
+      }
+    }
+    for (const m of baseMirrors) {
+      if (!seen.has(m.id)) {
+        ordered.push(m);
+        seen.add(m.id);
+      }
+    }
+    return ordered;
+  }
+
+  if (preferredMirror) {
+    const exact = baseMirrors.filter((m) => m.id === preferredMirror);
+    if (exact.length > 0) {
+      const rest = baseMirrors.filter((m) => m.id !== preferredMirror);
+      return [...exact, ...rest];
+    }
+  }
+  return baseMirrors;
+}
+
+function shouldCircuitBreakMirror(attempt) {
+  if (!attempt) return false;
+  if (attempt.circuitBreakMirror) return true;
+  if (attempt.reason === 'quota_exceeded_html' || attempt.reason === 'html_interstitial_or_quota_exceeded') return true;
+  if (attempt.reason === 'sha256_mismatch') return true;
+  const httpStatus = Number(attempt.httpStatus || 0);
+  if ([401, 403, 404, 410, 429, 451].includes(httpStatus)) return true;
+  const errStr = String(attempt.error || '');
+  if (/\b(403|404|410|429)\b/.test(errStr) && /requested URL returned error|status code/i.test(errStr)) return true;
+  return false;
+}
+
+async function downloadFontAsset(
+  asset,
+  downloadDir,
+  { force = false, preferredMirror = null, mirrorOrder = null } = {}
+) {
   fs.mkdirSync(downloadDir, { recursive: true });
   const finalPath = path.join(downloadDir, asset.filename);
   if (!force && fs.existsSync(finalPath)) {
@@ -2917,6 +3587,7 @@ async function downloadFontAsset(asset, downloadDir, { force = false } = {}) {
         filePath: finalPath,
         cached: true,
         bytes: cachedCheck.bytes,
+        ...(cachedCheck.sha256 ? { sha256: cachedCheck.sha256 } : {}),
         method: 'cache'
       };
     }
@@ -2929,92 +3600,45 @@ async function downloadFontAsset(asset, downloadDir, { force = false } = {}) {
     } catch {}
   };
   const timeoutSec = asset.timeoutSec || 300;
+  const mirrors = resolveAssetMirrors(asset, { preferredMirror, mirrorOrder });
   const attempts = [];
 
-  // Strategy 1: curl / curl.exe（跨平台原生支持 HTTP_PROXY/HTTPS_PROXY，Windows 下自动探测系统注册表代理）
-  try {
-    const curlBin = process.platform === 'win32' ? 'curl.exe' : 'curl';
-    const winProxy = detectWindowsSystemProxy();
-    const curlArgs = [
-      '-fSL',
-      '--retry',
-      '2',
-      '--retry-delay',
-      '2',
-      '--connect-timeout',
-      '15',
-      '--max-time',
-      String(timeoutSec)
-    ];
-    if (winProxy) curlArgs.push('--proxy', winProxy);
-    curlArgs.push('-o', partPath, asset.url);
-    const r = spawnSync(curlBin, curlArgs, {
-      stdio: ['ignore', 'ignore', 'pipe'],
-      encoding: 'utf8',
-      windowsHide: true,
-      timeout: (timeoutSec + 15) * 1000
-    });
-    if (r.status === 0 && !r.error) {
-      const chk = validateDownloadedBinary(partPath, asset);
-      if (chk.ok) {
-        fs.renameSync(partPath, finalPath);
-        return {
-          ok: true,
-          id: asset.id,
-          filename: asset.filename,
-          filePath: finalPath,
-          cached: false,
-          bytes: chk.bytes,
-          method: winProxy ? 'curl(win-system-proxy)' : 'curl'
-        };
+  for (const mirror of mirrors) {
+    let mirrorCircuitBroken = false;
+    const recordAttemptAndCheckBreak = (entry) => {
+      const fullEntry = { mirror: mirror.id, url: mirror.url, ...entry };
+      attempts.push(fullEntry);
+      if (shouldCircuitBreakMirror(fullEntry)) {
+        mirrorCircuitBroken = true;
+        process.stderr.write(
+          `[Fonts] Mirror "${mirror.id}" rejected ${asset.filename} (${fullEntry.reason || fullEntry.httpStatus || fullEntry.error || 'blocked'}), switching to next mirror...\n`
+        );
       }
-      attempts.push({ method: 'curl', ok: false, ...chk });
-    } else {
-      attempts.push({
-        method: 'curl',
-        ok: false,
-        status: r.status,
-        error: String(r.error?.message || r.stderr || '').trim().slice(0, 240)
-      });
-    }
-  } catch (err) {
-    attempts.push({ method: 'curl', ok: false, error: String(err?.message || err).slice(0, 240) });
-  }
-  cleanupPart();
+    };
 
-  // Strategy 2 (Windows): PowerShell .NET HttpClient（原生继承 WinINET/PAC/系统代理与 TLS 1.2+，流式落盘零高内存）
-  if (process.platform === 'win32') {
-    const cfgTmp = path.join(os.tmpdir(), `ag-dl-cfg-${process.pid}-${Date.now()}.json`);
+    // Strategy 1: curl / curl.exe（跨平台原生支持 HTTP_PROXY/HTTPS_PROXY，Windows 下自动探测系统注册表代理）
     try {
-      fs.writeFileSync(cfgTmp, JSON.stringify({ url: asset.url, out: partPath, timeoutSec }), 'utf8');
-      const psScript = [
-        '$ErrorActionPreference = "Stop"',
-        '[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12',
-        'Add-Type -AssemblyName System.Net.Http',
-        `$cfg = Get-Content -LiteralPath '${cfgTmp.replace(/'/g, "''")}' -Raw -Encoding UTF8 | ConvertFrom-Json`,
-        '$handler = New-Object System.Net.Http.HttpClientHandler',
-        '$handler.AllowAutoRedirect = $true',
-        '$handler.UseProxy = $true',
-        '$client = New-Object System.Net.Http.HttpClient($handler)',
-        '$client.Timeout = [TimeSpan]::FromSeconds([int]$cfg.timeoutSec)',
-        'try {',
-        '  $resp = $client.GetAsync([string]$cfg.url, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()',
-        '  $resp.EnsureSuccessStatusCode() | Out-Null',
-        '  $inStream = $resp.Content.ReadAsStreamAsync().GetAwaiter().GetResult()',
-        '  $outStream = [System.IO.File]::Create([string]$cfg.out)',
-        '  try { $inStream.CopyTo($outStream) } finally { $outStream.Dispose(); $inStream.Dispose() }',
-        '} finally { $client.Dispose(); $handler.Dispose() }'
-      ].join('\n');
-      const r = spawnSync(
-        'powershell',
-        ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-Command', psScript],
-        {
-          stdio: ['ignore', 'ignore', 'pipe'],
-          encoding: 'utf8',
-          windowsHide: true,
-          timeout: (timeoutSec + 20) * 1000
-        }
-      );
+      const curlBin = process.platform === 'win32' ? 'curl.exe' : 'curl';
+      const winProxy = detectWindowsSystemProxy();
+      const curlArgs = [
+        '-fSL',
+        '--retry',
+        '1',
+        '--retry-delay',
+        '2',
+        '--connect-timeout',
+        '15',
+        '--max-time',
+        String(timeoutSec)
+      ];
+      if (winProxy) curlArgs.push('--proxy', winProxy);
+      curlArgs.push('-o', partPath, mirror.url);
+      const r = spawnSync(curlBin, curlArgs, {
+        stdio: ['ignore', 'ignore', 'pipe'],
+        encoding: 'utf8',
+        windowsHide: true,
+        timeout: (timeoutSec + 15) * 1000
+      });
       if (r.status === 0 && !r.error) {
         const chk = validateDownloadedBinary(partPath, asset);
         if (chk.ok) {
@@ -3026,64 +3650,145 @@ async function downloadFontAsset(asset, downloadDir, { force = false } = {}) {
             filePath: finalPath,
             cached: false,
             bytes: chk.bytes,
-            method: 'powershell-httpclient'
+            ...(chk.sha256 ? { sha256: chk.sha256 } : {}),
+            mirror: mirror.id,
+            url: mirror.url,
+            method: winProxy ? 'curl(win-system-proxy)' : 'curl',
+            ...(attempts.length > 0 ? { failoverAttempts: attempts } : {})
           };
         }
-        attempts.push({ method: 'powershell-httpclient', ok: false, ...chk });
+        recordAttemptAndCheckBreak({ method: 'curl', ok: false, ...chk });
       } else {
-        attempts.push({
-          method: 'powershell-httpclient',
+        recordAttemptAndCheckBreak({
+          method: 'curl',
           ok: false,
           status: r.status,
           error: String(r.error?.message || r.stderr || '').trim().slice(0, 240)
         });
       }
     } catch (err) {
-      attempts.push({ method: 'powershell-httpclient', ok: false, error: String(err?.message || err).slice(0, 240) });
-    } finally {
+      recordAttemptAndCheckBreak({ method: 'curl', ok: false, error: String(err?.message || err).slice(0, 240) });
+    }
+    cleanupPart();
+    if (mirrorCircuitBroken) continue;
+
+    // Strategy 2 (Windows): PowerShell .NET HttpClient（原生继承 WinINET/PAC/系统代理与 TLS 1.2+，流式落盘零高内存）
+    if (process.platform === 'win32') {
+      const cfgTmp = path.join(os.tmpdir(), `ag-dl-cfg-${process.pid}-${Date.now()}.json`);
       try {
-        if (fs.existsSync(cfgTmp)) fs.unlinkSync(cfgTmp);
-      } catch {}
+        fs.writeFileSync(cfgTmp, JSON.stringify({ url: mirror.url, out: partPath, timeoutSec }), 'utf8');
+        const psScript = [
+          '$ErrorActionPreference = "Stop"',
+          '[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12',
+          'Add-Type -AssemblyName System.Net.Http',
+          `$cfg = Get-Content -LiteralPath '${cfgTmp.replace(/'/g, "''")}' -Raw -Encoding UTF8 | ConvertFrom-Json`,
+          '$handler = New-Object System.Net.Http.HttpClientHandler',
+          '$handler.AllowAutoRedirect = $true',
+          '$handler.UseProxy = $true',
+          '$client = New-Object System.Net.Http.HttpClient($handler)',
+          '$client.Timeout = [TimeSpan]::FromSeconds([int]$cfg.timeoutSec)',
+          'try {',
+          '  $resp = $client.GetAsync([string]$cfg.url, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()',
+          '  $resp.EnsureSuccessStatusCode() | Out-Null',
+          '  $inStream = $resp.Content.ReadAsStreamAsync().GetAwaiter().GetResult()',
+          '  $outStream = [System.IO.File]::Create([string]$cfg.out)',
+          '  try { $inStream.CopyTo($outStream) } finally { $outStream.Dispose(); $inStream.Dispose() }',
+          '} finally { $client.Dispose(); $handler.Dispose() }'
+        ].join('\n');
+        const r = spawnSync(
+          'powershell',
+          ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-Command', psScript],
+          {
+            stdio: ['ignore', 'ignore', 'pipe'],
+            encoding: 'utf8',
+            windowsHide: true,
+            timeout: (timeoutSec + 20) * 1000
+          }
+        );
+        if (r.status === 0 && !r.error) {
+          const chk = validateDownloadedBinary(partPath, asset);
+          if (chk.ok) {
+            fs.renameSync(partPath, finalPath);
+            return {
+              ok: true,
+              id: asset.id,
+              filename: asset.filename,
+              filePath: finalPath,
+              cached: false,
+              bytes: chk.bytes,
+              ...(chk.sha256 ? { sha256: chk.sha256 } : {}),
+              mirror: mirror.id,
+              url: mirror.url,
+              method: 'powershell-httpclient',
+              ...(attempts.length > 0 ? { failoverAttempts: attempts } : {})
+            };
+          }
+          recordAttemptAndCheckBreak({ method: 'powershell-httpclient', ok: false, ...chk });
+        } else {
+          recordAttemptAndCheckBreak({
+            method: 'powershell-httpclient',
+            ok: false,
+            status: r.status,
+            error: String(r.error?.message || r.stderr || '').trim().slice(0, 240)
+          });
+        }
+      } catch (err) {
+        recordAttemptAndCheckBreak({
+          method: 'powershell-httpclient',
+          ok: false,
+          error: String(err?.message || err).slice(0, 240)
+        });
+      } finally {
+        try {
+          if (fs.existsSync(cfgTmp)) fs.unlinkSync(cfgTmp);
+        } catch {}
+      }
+      cleanupPart();
+      if (mirrorCircuitBroken) continue;
+    }
+
+    // Strategy 3: Node 22+ 原生 fetch 流式下载兜底
+    try {
+      const res = await fetch(mirror.url, {
+        redirect: 'follow',
+        signal: AbortSignal.timeout(timeoutSec * 1000)
+      });
+      if (!res.ok || !res.body) {
+        recordAttemptAndCheckBreak({ method: 'node-fetch', ok: false, httpStatus: res.status });
+      } else {
+        await pipeline(Readable.fromWeb(res.body), fs.createWriteStream(partPath));
+        const chk = validateDownloadedBinary(partPath, asset);
+        if (chk.ok) {
+          fs.renameSync(partPath, finalPath);
+          return {
+            ok: true,
+            id: asset.id,
+            filename: asset.filename,
+            filePath: finalPath,
+            cached: false,
+            bytes: chk.bytes,
+            ...(chk.sha256 ? { sha256: chk.sha256 } : {}),
+            mirror: mirror.id,
+            url: mirror.url,
+            method: 'node-fetch',
+            ...(attempts.length > 0 ? { failoverAttempts: attempts } : {})
+          };
+        }
+        recordAttemptAndCheckBreak({ method: 'node-fetch', ok: false, ...chk });
+      }
+    } catch (err) {
+      recordAttemptAndCheckBreak({ method: 'node-fetch', ok: false, error: String(err?.message || err).slice(0, 240) });
     }
     cleanupPart();
   }
-
-  // Strategy 3: Node 22+ 原生 fetch 流式下载兜底
-  try {
-    const res = await fetch(asset.url, {
-      redirect: 'follow',
-      signal: AbortSignal.timeout(timeoutSec * 1000)
-    });
-    if (!res.ok || !res.body) {
-      attempts.push({ method: 'node-fetch', ok: false, status: res.status });
-    } else {
-      await pipeline(Readable.fromWeb(res.body), fs.createWriteStream(partPath));
-      const chk = validateDownloadedBinary(partPath, asset);
-      if (chk.ok) {
-        fs.renameSync(partPath, finalPath);
-        return {
-          ok: true,
-          id: asset.id,
-          filename: asset.filename,
-          filePath: finalPath,
-          cached: false,
-          bytes: chk.bytes,
-          method: 'node-fetch'
-        };
-      }
-      attempts.push({ method: 'node-fetch', ok: false, ...chk });
-    }
-  } catch (err) {
-    attempts.push({ method: 'node-fetch', ok: false, error: String(err?.message || err).slice(0, 240) });
-  }
-  cleanupPart();
 
   return {
     ok: false,
     id: asset.id,
     filename: asset.filename,
-    url: asset.url,
-    manualUrl: asset.viewUrl || GOOGLE_DRIVE_URL,
+    url: mirrors[0]?.url || asset.url,
+    mirrors: mirrors.map((m) => ({ id: m.id, url: m.url })),
+    manualUrl: asset.viewUrl || mirrors[0]?.url || GOOGLE_DRIVE_URL,
     attempts
   };
 }
@@ -3154,7 +3859,15 @@ function selectMissingFontAssets(env, { includeAll = false, useSuperTtc = false,
   return assets;
 }
 
-async function downloadFontsBatch({ downloadDir, includeAll = false, force = false, useSuperTtc = false, wantSplitSarasa = false } = {}) {
+async function downloadFontsBatch({
+  downloadDir,
+  includeAll = false,
+  force = false,
+  useSuperTtc = false,
+  wantSplitSarasa = false,
+  preferredMirror = null,
+  mirrorOrder = null
+} = {}) {
   const env = await detectEnvironment('auto');
   const assets = selectMissingFontAssets(env, { includeAll, useSuperTtc, wantSplitSarasa });
   const targetDownloadDir = path.resolve(downloadDir || path.join(os.tmpdir(), 'chuanban-ag-fonts-cache'));
@@ -3162,7 +3875,7 @@ async function downloadFontsBatch({ downloadDir, includeAll = false, force = fal
   const results = [];
   for (const asset of assets) {
     process.stderr.write(`[Fonts] Downloading ${asset.filename} ...\n`);
-    const r = await downloadFontAsset(asset, targetDownloadDir, { force });
+    const r = await downloadFontAsset(asset, targetDownloadDir, { force, preferredMirror, mirrorOrder });
     results.push(r);
   }
   const failed = results.filter((r) => !r.ok);
@@ -3176,9 +3889,19 @@ async function downloadFontsBatch({ downloadDir, includeAll = false, force = fal
     results,
     manualFallbackHint:
       failed.length > 0
-        ? `Automatic download failed for ${failed.map((f) => f.filename).join(', ')} (likely terminal network/proxy restriction or Google Drive temporary quota). Download manually in browser from ${GOOGLE_DRIVE_URL} (Windows Sarasa Split ZIP: ${WINDOWS_SARASA_SPLIT_VIEW_URL}), then run: node install.mjs install-fonts --from "<downloaded-folder-or-zip>"`
+        ? `Automatic download failed for ${failed.map((f) => f.filename).join(', ')} (likely terminal network/proxy restriction). Download manually in browser from Cloudflare R2 (${R2_SARASA_SPLIT_URL}), GitHub Release (${GITHUB_SARASA_SPLIT_URL}), or Google Drive (${GOOGLE_DRIVE_URL}), then run: node install.mjs install-fonts --from "<downloaded-folder-or-zip>"`
         : null
   };
+}
+
+function parseMirrorOrderArg() {
+  const raw = getArg('--mirror-order', null);
+  if (!raw) return null;
+  const list = raw
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return list.length > 0 ? list : null;
 }
 
 async function runDownloadFontsCmd() {
@@ -3186,7 +3909,16 @@ async function runDownloadFontsCmd() {
   const includeAll = hasFlag('--all');
   const force = hasFlag('--force');
   const useSuperTtc = hasFlag('--super-ttc');
-  const summary = await downloadFontsBatch({ downloadDir, includeAll, force, useSuperTtc });
+  const preferredMirror = getArg('--mirror', null);
+  const mirrorOrder = parseMirrorOrderArg();
+  const summary = await downloadFontsBatch({
+    downloadDir,
+    includeAll,
+    force,
+    useSuperTtc,
+    preferredMirror,
+    mirrorOrder
+  });
   console.log(JSON.stringify(summary, null, 2));
   if (!summary.ok) process.exitCode = 1;
 }
@@ -3217,7 +3949,9 @@ async function runInstallFonts() {
       includeAll: hasFlag('--all'),
       force: hasFlag('--force'),
       useSuperTtc: hasFlag('--super-ttc'),
-      wantSplitSarasa: shouldRetireSuperTtc
+      wantSplitSarasa: shouldRetireSuperTtc,
+      preferredMirror: getArg('--mirror', null),
+      mirrorOrder: parseMirrorOrderArg()
     });
     if (downloadSummary.requestedCount > 0) {
       for (const r of downloadSummary.results) {

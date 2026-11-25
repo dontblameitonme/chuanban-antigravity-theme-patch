@@ -1,8 +1,8 @@
 # chuanban-antigravity-theme-patch (Patched Edition)
 
 [![Upstream](https://img.shields.io/badge/Upstream-Anarcadia%2Fchuanban--antigravity--theme--patch-blue?logo=github)](https://github.com/Anarcadia/chuanban-antigravity-theme-patch)
-[![Version](https://img.shields.io/badge/version-6.0.2-3D6470.svg)](https://github.com/dontblameitonme/chuanban-antigravity-theme-patch)
-[![Antigravity](https://img.shields.io/badge/Antigravity-2.34.0%2B-3F6E7A.svg)](https://github.com/dontblameitonme/chuanban-antigravity-theme-patch)
+[![Version](https://img.shields.io/badge/version-6.0.3-3D6470.svg)](https://github.com/dontblameitonme/chuanban-antigravity-theme-patch)
+[![Antigravity](https://img.shields.io/badge/Antigravity-2.35.1%2B-3F6E7A.svg)](https://github.com/dontblameitonme/chuanban-antigravity-theme-patch)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > A custom patched edition of [chuanban-antigravity-theme-patch](https://github.com/Anarcadia/chuanban-antigravity-theme-patch) for Google Antigravity.
@@ -42,6 +42,7 @@ node install.mjs verify
 | **Typography** | Anthropic Serif + Sarasa Mono Slab | **Native Google Sans Flex & Google Sans Code** | `user/custom.js`: `cleanFontFaces()`, `stripCustomOverrides()` |
 | **Input Box** | 2px Wax-Seal Border | **Native Clean Composer** | `user/config.json`: `"modules.composerWaxSeal": false`, stripped in `user/custom.js` |
 | **Metrics Pill** | Left Border + Theme Font | **No Divider Line + System UI Font** | `user/custom.css`: `border-left: none !important; font-family: system-ui` |
+| **Dark Palette** | Cold Slate (`onyx`) + 2px Left Bar | **Deepened Claude Warm (`#191816` / `#131210`) + Clean Pill** | `user/config.json`: `"darkPreset": "claude-warm"`, `user/custom.css` |
 
 ---
 
