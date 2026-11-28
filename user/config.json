@@ -4,7 +4,6 @@
   "preset": "morandi",
   "darkPreset": "claude-warm",
   "installedLocale": "none",
-  "metricsMode": "full",
   "contextLimit": 256000,
   "modules": {
     "i18n": false,

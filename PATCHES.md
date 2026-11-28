@@ -12,7 +12,7 @@
 | **1** | **保留原生字体** | 不更换字体，保留 Antigravity 原生 `Google Sans Flex`（UI/正文）与 `Google Sans Code`（代码）；无需下载或安装第三方字体包。 | [user/custom.js](user/custom.js)：`cleanFontFaces()` 清空并禁用 `#ag-font-faces`；`stripCustomOverrides()` 剥离 `#ag-custom-fonts` 中全部 `@font-face` 与 `FONT_PROPS` 字体属性。 |
 | **2** | **默认英文 UI** | 保持官方英文界面，不开启汉化，不运行翻译 DOM 观察器。 | [user/config.json](user/config.json)：`"installedLocale": "none"`，`"modules.i18n": false`。 |
 | **3** | **原生底部输入框** | 还原 Antigravity 原生默认输入框样式，不使用火漆封印边框或自定义按钮样式。 | [user/config.json](user/config.json)：`"modules.composerWaxSeal": false`；[user/custom.js](user/custom.js)：`COMPOSER_RULE_RE` 剥离全部 composer 相关规则。 |
-| **4** | **完整指标胶囊** | 保留模型选择右侧的实时指标胶囊并开启完整 Token 统计（`"metricsMode": "full"`，显示单步/本轮/会话累计输入输出 Token 数），**去掉左侧小竖线**，并使用**纯 Windows 系统字体**。 | [user/config.json](user/config.json)：`"modules.metrics": true`，`"metricsMode": "full"`；[user/custom.css](user/custom.css)：`#ag-live-metrics-pill` 设置 `border-left: none !important;` 及 `font-family: system-ui, "Segoe UI", "Microsoft YaHei UI", sans-serif !important;`。 |
+| **4** | **极简指标胶囊** | 保留模型选择右侧的实时指标胶囊（保持默认 `compact` 圆环与进度条直观样式），**去掉左侧小竖线**，并使用**纯 Windows 系统字体**。 | [user/config.json](user/config.json)：`"modules.metrics": true`；[user/custom.css](user/custom.css)：`#ag-live-metrics-pill` 设置 `border-left: none !important;` 及 `font-family: system-ui, "Segoe UI", "Microsoft YaHei UI", sans-serif !important;`。 |
 | **5** | **Claude 加深暖暗色** | 整体采用 Claude 暖炭黑配色，并**进一步加深主画布与侧栏底色**；同时**去掉左侧会话选中框最左侧的 2px 高亮竖线**，保留纯圆角胶囊选中背景。 | [user/config.json](user/config.json)：`"darkPreset": "claude-warm"`；[user/custom.css](user/custom.css)：主画布 `#191816`、侧栏 `#131210`、卡片/输入框 `#21201D`、选中行 `#2B2925`，且 `.agy-sidebar-row[data-selected="true"]` 强制 `box-shadow: none !important;`。 |
 | **6** | **精简版文档** | `README.md` 保持 Patched Edition 简洁风格；文档与仓库链接指向 `dontblameitonme/chuanban-antigravity-theme-patch`。 | [README.md](README.md)、[SKILL.md](SKILL.md)。 |
 
@@ -32,7 +32,7 @@ git diff --stat HEAD...upstream/main
 ### 2. 合并与冲突处理原则
 执行 `git merge upstream/main` 后：
 - **`core/*` 与 `install.mjs`**：直接采用上游最新版本，不篡改 `core/` 只读内核。
-- **`user/config.json`**：吸收上游新增的功能开关（如 `tokenAnalytics`、`cdpAutoRelaunch` 等），但**必须锁定保留** `"installedLocale": "none"`、`"metricsMode": "full"`、`"modules.i18n": false`、`"modules.composerWaxSeal": false`、`"darkPreset": "claude-warm"`。
+- **`user/config.json`**：吸收上游新增的功能开关（如 `tokenAnalytics`、`cdpAutoRelaunch` 等），但**必须锁定保留** `"installedLocale": "none"`、`"modules.i18n": false`、`"modules.composerWaxSeal": false`、`"darkPreset": "claude-warm"`。
 - **`user/custom.js`**：保留现有剥离逻辑；若上游在 `core/theme.css` 或 `core/runtime.js` 中新增了字体变量、字体 `<style>` 标签或新的输入框选择器，需同步补充到 `FONT_PROPS`、`cleanFontFaces()` 或 `COMPOSER_RULE_RE`。
 - **`user/custom.css`**：保留现有去竖线、系统字体与加深暗色变量覆盖；若上游修改了选中态或底色选择器优先级，需确保 `custom.css` 仍能覆盖生效。
 - **`README.md`**：保持 Patched Edition 简洁风格，仅同步更新版本号/适配版本徽章与上游特性折叠列表。
